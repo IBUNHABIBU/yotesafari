@@ -1,8 +1,8 @@
 # Name of your application. Used to uniquely configure containers.
-service: tour
+service: yote
 
 # Name of the container image.
-image: ibunhabibu/tour
+image: ibunhabibu/yote
 
 # Deploy to these servers.
 servers:
@@ -38,7 +38,7 @@ registry:
 # Inject ENV variables into containers (secrets come from .kamal/secrets).
 env:
   clear:
-    DB_HOST: tour-db
+    DB_HOST: yote-db
 
   secret:
     - RAILS_MASTER_KEY
@@ -60,7 +60,7 @@ env:
     # WEB_CONCURRENCY: 2
 
     # Match this to any external database server to configure Active Record correctly
-    # Use tour-db for a db accessory server on same machine via local kamal docker network.
+    # Use yote-db for a db accessory server on same machine via local kamal docker network.
     DB_HOST: 45.92.9.7
 
     # Log everything from Rails
@@ -78,7 +78,7 @@ aliases:
 # Use a persistent storage volume for sqlite database files and local Active Storage files.
 # Recommended to change this to a mounted volume path that is backed up off server.
 volumes:
-  - "tour_storage:/rails/storage"
+  - "yote_storage:/rails/storage"
 
 
 # Bridge fingerprinted assets, like JS and CSS, between versions to avoid
@@ -112,7 +112,7 @@ accessories:
     env:
       clear:
         POSTGRES_USER: "postgres"
-        POSTGRES_DB: "tour_production"
+        POSTGRES_DB: "yote_production"
 
       secret:
         - RAILS_MASTER_KEY
